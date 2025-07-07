@@ -1,12 +1,19 @@
 import pandas as pd
 import numpy as np
 import os
+import seaborn as sns
+import matplotlib.pyplot as plt
+from xgboost import XGBClassifier
+from sklearn.model_selection import train_test_split
 
 def load_raw_data():
-    return pd.read_excel("data/raw/credit_data.xls", engine='xlrd', header=1)
+    return pd.read_csv("data/raw/train.csv")
+
+def add_features(df):
+    return df
 
 # this is to preprocess the data for xgboost and the like, since trees handle data a little bit differently
-def general_preprocess(df):
+def preprocess_for_tree(df):
     # this will be empty since the data is already numeric
     return df
 
